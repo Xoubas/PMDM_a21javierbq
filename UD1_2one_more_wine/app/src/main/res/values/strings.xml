@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">UD1_2</string>
+    <string name="Lista_tipo_vinos">Lista de Vinos</string>
+    <string name="ButtonSearch">Search</string>
+    <string-array name="wineList">
+        <item>Blanco</item>
+        <item>Tinto</item>
+        <item>Rosado</item>
+    </string-array>
 </resources>
