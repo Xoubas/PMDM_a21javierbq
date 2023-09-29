@@ -28,10 +28,12 @@ class MainActivity : AppCompatActivity() {
                 chrono.base = savedInstanceState.getLong(BASE_KEY)
                 chrono.start()
             } else {
-                chrono.base = SystemClock.elapsedRealtime()-offset
+                chrono.base = SystemClock.elapsedRealtime() - offset
             }
         }
 
+        //Chronometer buttons:
+        //Finds the button by id in the xml file
         val btnStart = findViewById<Button>(R.id.btn_start)
         btnStart.setOnClickListener() {
             if (!running) {
@@ -55,13 +57,48 @@ class MainActivity : AppCompatActivity() {
             offset = 0
             chrono.base = SystemClock.elapsedRealtime()
         }
-
     }
 
+    //Function to save the app's state when tilting the screen
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putBoolean(RUNNING_KEY, running)
         outState.putLong(OFFSET_KEY, offset)
         outState.putLong(BASE_KEY, chrono.base)
         super.onSaveInstanceState(outState)
+    }
+
+    //Functions to stop and restart the app when losing focus
+    override fun onStop() {
+        stopChrono()
+        super.onStop()
+    }
+
+    override fun onRestart() {
+        startChrono()
+        super.onRestart()
+    }
+
+    override fun onPause() {
+        stopChrono()
+        super.onPause()
+    }
+
+    override fun onResume() {
+        startChrono()
+        super.onResume()
+    }
+
+    fun startChrono() {
+        if (running) {
+            chrono.base = SystemClock.elapsedRealtime() - offset
+            chrono.start()
+        }
+    }
+
+    fun stopChrono() {
+        if (running) {
+            offset = SystemClock.elapsedRealtime() - chrono.base
+            chrono.stop()
+        }
     }
 }
