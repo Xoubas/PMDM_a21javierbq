@@ -11,13 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@drawable/iceberg"></ImageView>
+        android:src="@drawable/iceberg"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:src="@drawable/tux"></ImageView>
+        android:src="@drawable/tux"/>
 
     <TextView
         android:textStyle="bold"
@@ -26,5 +26,5 @@
         android:layout_gravity="center|top"
         android:text="@string/text"
         android:textColor="@color/white"
-        android:textSize="45dp"></TextView>
+        android:textSize="45sp"/>
 </FrameLayout>
