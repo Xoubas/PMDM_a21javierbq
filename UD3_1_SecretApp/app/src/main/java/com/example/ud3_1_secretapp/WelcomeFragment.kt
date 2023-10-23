@@ -15,9 +15,9 @@ class WelcomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_welcome, container, false)
-        val buttonStart=view.findViewById<Button>(R.id.button_start)
-        buttonStart.setOnClickListener{
+        val view = inflater.inflate(R.layout.fragment_welcome, container, false)
+        val buttonStart = view.findViewById<Button>(R.id.button_start)
+        buttonStart.setOnClickListener {
             view.findNavController().navigate(R.id.action_welcomeFragment_to_messageFragment)
         }
         return view

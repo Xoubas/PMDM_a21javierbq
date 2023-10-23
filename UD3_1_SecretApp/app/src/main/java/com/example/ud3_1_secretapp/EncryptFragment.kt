@@ -15,11 +15,15 @@ class EncryptFragment : Fragment() {
         // Inflate the layout for this fragment
         val message = EncryptFragmentArgs.fromBundle(requireArguments()).message
         val view = inflater.inflate(R.layout.fragment_encrypt, container, false)
-        view.findViewById<TextView>(R.id.encrypt_textValue).text = message
+        view.findViewById<TextView>(R.id.encrypt_textValue).text = cesar(message)
         return view
     }
 
     fun cesar(message: String) = message.map {
-        it.uppercase()
-    }
+        if (it.isLetter()) {
+            it.uppercaseChar().code.minus('A'.code).plus(3).mod(26).toChar()
+        } else {
+            it
+        }
+    }.joinToString(separator = "")
 }
