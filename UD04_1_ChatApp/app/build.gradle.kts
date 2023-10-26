@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ud4_1_chat"
+    namespace = "com.example.ud04_1_chatapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.ud4_1_chat"
+        applicationId = "com.example.ud04_1_chatapp"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
