@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UD4_2_HalloweenApp</string>
+    <string name="main_title">Introduce tu nombre</string>
+    <string name="editText_hint">Introduce tu nombre aquí</string>
+    <string name="button_main">Siguiente</string>
+    <string name="theme_title">Selecciona una temática</string>
+</resources>

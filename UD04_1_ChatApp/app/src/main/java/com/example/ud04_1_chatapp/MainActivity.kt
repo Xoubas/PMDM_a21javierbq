@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,14 +29,20 @@ class MainActivity : AppCompatActivity() {
         toolbar.setupWithNavController(navHostFragment.navController)
 
         val builderApp = AppBarConfiguration.Builder(navController.graph)
-        val appBarConfiguration = builderApp.build()
-        toolbar.setupWithNavController(navController, appBarConfiguration)
 
         //Send the nav_controller to the bottom bar so it can change fragments
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.setupWithNavController(navController)
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
+        val builder = AppBarConfiguration.Builder(navController.graph)
+        builder.setOpenableLayout(drawerLayout)
+
+        val appBarConfiguration = builderApp.build()
+        toolbar.setupWithNavController(navController, appBarConfiguration)
+
+        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+        navigationView.setupWithNavController(navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
