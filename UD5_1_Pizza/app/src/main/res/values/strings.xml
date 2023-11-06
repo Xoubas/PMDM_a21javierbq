@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Pizza Time</string>
+    <string name="tipo_pizza">Selecciona tu tipo de pizza</string>
+</resources>
