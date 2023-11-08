@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.ud4_2_halloweenapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.ud4_2_halloweenapp"

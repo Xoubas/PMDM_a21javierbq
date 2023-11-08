@@ -20,10 +20,9 @@ class EncryptFragment : Fragment() {
     }
 
     fun cesar(message: String) = message.map {
-        if (it.isLetter()) {
-            it.uppercaseChar().code.minus('A'.code).plus(3).mod(26).toChar()
-        } else {
+        if (it.isLetter())
+            it.uppercaseChar().code.minus('A'.code).plus(3).mod(26).plus('A'.code).toChar()
+        else
             it
-        }
-    }.joinToString(separator = "")
+    }.joinToString("")
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.ud4_2_halloweenapp.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_themeFragment2"
+            app:destination="@id/themeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/themeFragment2"
+        android:name="com.example.ud4_2_halloweenapp.ThemeFragment"
+        android:label="ThemeFragment" >
+        <action
+            android:id="@+id/action_themeFragment2_to_houseFragment"
+            app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_themeFragment2_to_forestFragment"
+            app:destination="@id/forestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forestFragment"
+        android:name="com.example.ud4_2_halloweenapp.ForestFragment"
+        android:label="ForestFragment" />
+    <fragment
+        android:id="@+id/houseFragment"
+        android:name="com.example.ud4_2_halloweenapp.HouseFragment"
+        android:label="HouseFragment" />
+</navigation>
