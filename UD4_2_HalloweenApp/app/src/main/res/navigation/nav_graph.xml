@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
-
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.ud4_2_halloweenapp.MainFragment"
-        android:label="MainFragment" >
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_themeFragment2"
             app:destination="@id/themeFragment2" />
@@ -15,20 +16,19 @@
     <fragment
         android:id="@+id/themeFragment2"
         android:name="com.example.ud4_2_halloweenapp.ThemeFragment"
-        android:label="ThemeFragment" >
+        android:label="ThemeFragment"
+        tools:layout="@layout/fragment_theme">
         <action
-            android:id="@+id/action_themeFragment2_to_houseFragment"
-            app:destination="@id/houseFragment" />
-        <action
-            android:id="@+id/action_themeFragment2_to_forestFragment"
-            app:destination="@id/forestFragment" />
+            android:id="@+id/action_themeFragment2_to_taleFragment2"
+            app:destination="@id/taleFragment2" />
+        <argument
+            android:name="name"
+            android:defaultValue="Sabela"
+            app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/forestFragment"
-        android:name="com.example.ud4_2_halloweenapp.ForestFragment"
-        android:label="ForestFragment" />
-    <fragment
-        android:id="@+id/houseFragment"
-        android:name="com.example.ud4_2_halloweenapp.HouseFragment"
-        android:label="HouseFragment" />
+        android:id="@+id/taleFragment2"
+        android:name="com.example.ud4_2_halloweenapp.TaleFragment"
+        android:label="TaleFragment"
+        tools:layout="@layout/fragment_tale" />
 </navigation>
