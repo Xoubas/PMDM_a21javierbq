@@ -7,16 +7,18 @@
     <string name="casa_encantada">Casa\nencantada</string>
     <string name="bosque_encantado">Bosque\nmaldito</string>
     <string name="titulo_casa">Casa Encantada</string>
-    <string name="texto_casa">Una joven tuvo una noche un extraño sueño: caminaba por un inhóspito sendero que ascendía
+    <string name="texto_casa">%1$s tuvo una noche un extraño sueño: caminaba por un inhóspito sendero que ascendía
         por una colina y atravesaba un espeso bosque. Todo estaba en calma. Reinaba el silencio. Al llegar a la cima de
-        la colina, había una pequeña casa blanca, rodeada por un hermoso jardín. Llena de curiosidad, la joven llamó
+        la colina, había una pequeña casa blanca, rodeada por un hermoso jardín. Llena de curiosidad, %1$s llamó
         a la puerta.
     </string>
     <string name="titulo_bosque">Bosque Maldito</string>
     <string name="texto_bosque">Un día un grupo de cinco chicos y tres chicas paseaban por un bosque
-        cuando uno de ellos se adentró mucho en él, y se perdió.
+        cuando %1$s se adentró mucho en él, y se perdió.
         Sus amigos estuvieron un rato buscándolo y llamándolo cuando, de
-        repente, se toparon con su cadáver al lado de un árbol. Encima tenía escritoen sangre «¿quién de
+        repente, se toparon con su cadáver al lado de un árbol. Encima tenía escrito en sangre «¿quién de
         vosotros será el siguiente?».
     </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
