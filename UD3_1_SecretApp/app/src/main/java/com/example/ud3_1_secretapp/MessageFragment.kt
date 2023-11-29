@@ -11,6 +11,7 @@ import android.widget.EditText
 import androidx.navigation.findNavController
 
 class MessageFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
