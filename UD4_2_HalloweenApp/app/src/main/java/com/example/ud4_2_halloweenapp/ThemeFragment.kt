@@ -5,55 +5,42 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ThemeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ThemeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_theme, container, false)
+        val name: String = ThemeFragmentArgs.fromBundle(requireArguments()).name
+        val view = inflater.inflate(R.layout.fragment_theme, container, false)
+
+        temaCasa(view, name)
+        temaBosque(view, name)
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ThemeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ThemeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun temaCasa(view: View, name: String) {
+        val card = view.findViewById<CardView>(R.id.card1)
+        card.setOnClickListener {
+            view.findViewById<TextView>(R.id.titulo).text = getString(R.string.titulo_casa)
+            view.findViewById<ImageView>(R.id.imagen).setImageResource(R.drawable.casa)
+            view.findViewById<TextView>(R.id.texto).text = getString(R.string.texto_casa, name)
+            view.findNavController().navigate(R.id.action_themeFragment2_to_taleFragment2)
+        }
+    }
+
+    fun temaBosque(view: View, name: String) {
+        val card = view.findViewById<CardView>(R.id.card2)
+        card.setOnClickListener {
+            view.findViewById<TextView>(R.id.titulo).text = getString(R.string.titulo_bosque)
+            view.findViewById<ImageView>(R.id.imagen).setImageResource(R.drawable.bosque)
+            view.findViewById<TextView>(R.id.texto).text = getString(R.string.texto_bosque, name)
+            view.findNavController().navigate(R.id.action_themeFragment2_to_taleFragment2)
+        }
     }
 }
