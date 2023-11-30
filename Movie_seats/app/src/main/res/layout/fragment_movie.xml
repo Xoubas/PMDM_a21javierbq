@@ -1,14 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/howls_moving_castle"
+    android:orientation="vertical"
     tools:context=".MovieFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_margin="30dp"
+        android:background="@color/movieBackground"
+        android:padding="7dp">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/movie_poster_show"
+            android:layout_width="120dp"
+            android:layout_height="170dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/howls_moving_castle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title_show"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:text="Title: Howl's Moving Castle"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/duration_show"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/movie_poster_show"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/duration_show"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:text="Duration: 1 hour 15 minutes"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/categories_show"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/movie_poster_show"
+            app:layout_constraintTop_toBottomOf="@id/title_show" />
+
+        <TextView
+            android:id="@+id/categories_show"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:text="Categories: Action, Fantasy"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/director_show"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/movie_poster_show"
+            app:layout_constraintTop_toBottomOf="@id/duration_show" />
+
+        <TextView
+            android:id="@+id/director_show"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:text="Director: Hayao Miyazaki"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/actors_show"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/movie_poster_show"
+            app:layout_constraintTop_toBottomOf="@id/categories_show" />
+
+        <TextView
+            android:id="@+id/actors_show"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:padding="7dp"
+            android:text="Actors: Chieko Baishô, Takuya Kimura, Tatsuya Gashûin"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/divider1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/director_show" />
+
+        <View
+            android:id="@+id/divider1"
+            style="@style/Divider"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actors_show" />
+
+
+        <!-- Collapsable textView -->
+        <at.blogc.android.views.ExpandableTextView
+            android:id="@+id/plot_show"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="A love story between an 18-year-old girl named Sophie, cursed by a witch into an old woman's body, and a magician named Howl. Under the curse, Sophie sets out to seek her fortune, which takes her to Howl's strange moving castle. In the castle, Sophie meets Howl's fire demon, named Karishifâ. Seeing that she is under a curse, the demon makes a deal with Sophie--if she breaks the contract he is under with Howl, then Karushifâ will lift the curse that Sophie is under, and she will return to her 18-year-old shape."
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+        <Button
+            android:id="@+id/expand_plot_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plot_show" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

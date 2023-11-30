@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!-- ExpandableTextView Container -->
+
+
+            <!-- simple text view -->
+            <TextView
+                android:id="@id/expandable_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#666666"
+                android:text="We Sanchhaya Education Pvt. Ltd., are registered and headquartered
+        at BC 227, 2nd Floor, Matrix Business Tower, B4, Sector 132, Noida, UP-201301, hereinafter
+        referred to as GeeksforGeeks. We also offer paid Courses managed by Sanchhaya Classes Pvt. Ltd.
+        with registered office address B-142, Vishwash Park, Uttam Nagar, New Delhi, North Delhi, Delhi, India, 110059.
+        At GeeksforGeeks, we value your trust and  respect your privacy. This privacy statement (“Privacy Statement”)
+        applies to the treatment of personally identifiable information submitted by, or otherwise obtained from,
+        you in connection with the associated application (“Application”). The Application is
+        provided by GeeksforGeeks (and may be provided by Geeksforgeeks on behalf
+        of a GeeksforGeeks licensor or partner (“Application Partner”).
+        By using or otherwise accessing the Application, you acknowledge that you accept the practices
+        and policies outlined in this Privacy Statement."
+                android:textSize="16sp" />
+
+            <!-- expandable ImageButton -->
+            <ImageButton
+                android:id="@id/expand_collapse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:background="@android:color/transparent" />
+
+        </com.ms.square.android.expandabletextview.ExpandableTextView>
+
+    </RelativeLayout>

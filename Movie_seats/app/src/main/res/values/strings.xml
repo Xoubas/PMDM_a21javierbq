@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">PMDM_Project</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="expand_button">Read more</string>
+    <string name="collapse_button">Read less</string>
 </resources>

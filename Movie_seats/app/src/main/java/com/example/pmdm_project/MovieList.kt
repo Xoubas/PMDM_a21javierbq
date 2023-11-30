@@ -4,7 +4,7 @@ import com.example.pmdm_project.model.Movie
 import com.example.pmdm_project.model.MovieDAO
 import java.net.URL
 
-class PopularMovies {
+class MovieList {
     fun loadMoviesHot(): List<String> {
         return listOf<String>("fsafds","dfsdfd","dsfdbnjjn","dsfdbnjjn","dsfdbnjjn","dsfdbnjjn","dsfdbnjjn")
     }

@@ -1,5 +1,6 @@
 package com.example.pmdm_project.model
 
+import MovieTypeAdapter
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import java.io.BufferedReader

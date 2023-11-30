@@ -10,28 +10,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pmdm_project.R
 import com.example.pmdm_project.databinding.FragmentHomeBinding
 import com.example.pmdm_project.databinding.ListItemBinding
+import com.example.pmdm_project.model.Movie
 import com.example.pmdm_project.model.RecyclerEvent
 
 
 class ItemAdapter(
     private val dataset: List<String>,
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+//    private var onClickListener: OnClickListener? = null
 
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view),
-        View.OnClickListener {
+    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.movie_title)
-
-        init {
-            view.setOnClickListener(this)
-        }
-
-        override fun onClick(p0: View?) {
-            val position = adapterPosition
-//            if (position != RecyclerView.NO_POSITION)
-//                event.onItemClick(position)
-        }
     }
 
+    //When the viewHolder is created
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         // create a new view
         val adapterLayout = LayoutInflater.from(parent.context)
@@ -46,10 +38,21 @@ class ItemAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.textView.text = dataset[position]
+//        holder.itemView.setOnClickListener {
+//            if (onClickListener != null) {
+//                onClickListener!!.onClick(position, item)
+//            }
+//        }
     }
 
-    /**
-     * Return the size of your dataset (invoked by the layout manager)
-     */
+//    fun setOnClickListener(onClickListener: OnClickListener) {
+//        this.onClickListener = onClickListener
+//    }
+
+//    interface OnClickListener {
+//        fun onClick(position: Int, model: Employee)
+//    }
+
+    //Size of the list
     override fun getItemCount() = dataset.size
 }
