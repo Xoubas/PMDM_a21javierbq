@@ -15,7 +15,7 @@ import com.example.pmdm_project.model.RecyclerEvent
 
 
 class ItemAdapter(
-    private val dataset: List<String>,
+    private val dataset: List<Movie>,
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 //    private var onClickListener: OnClickListener? = null
 
@@ -37,7 +37,7 @@ class ItemAdapter(
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.textView.text = dataset[position]
+        holder.textView.text = dataset[position].title
 //        holder.itemView.setOnClickListener {
 //            if (onClickListener != null) {
 //                onClickListener!!.onClick(position, item)
