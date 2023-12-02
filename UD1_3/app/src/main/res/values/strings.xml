@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">UD1_3</string>
-    <string name="btn_start">INICIAR</string>
-    <string name="btn_pause">PAUSAR</string>
-    <string name="btn_restart">REINICIAR</string>
-</resources>
