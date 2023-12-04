@@ -22,46 +22,34 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: MovieAdapter
-    private var movieList: MutableList<Movie> = mutableListOf<Movie>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        addMovieToList("&apikey=8a6a73eb&t=Howl%27s+moving+castle&plot=full")
-        addMovieToList("&apikey=8a6a73eb&t=Howl%27s+moving+castle&plot=full")
-        addMovieToList("&apikey=8a6a73eb&t=Howl%27s+moving+castle&plot=full")
+        callAPI()
         initRecyclerView()
-
         return binding.root
     }
 
-    private fun initRecyclerView() {
-        adapter = MovieAdapter(movieList)
-        binding.recyclerview1.layoutManager = LinearLayoutManager(context)
-        binding.recyclerview1.adapter
+    private fun callAPI() {
+        addMovieToList("?apikey=8a6a73eb&t=Howl%27s+moving+castle&plot=full")
+        addMovieToList("?apikey=8a6a73eb&t=Howl%27s+moving+castle&plot=full")
+        addMovieToList("?apikey=8a6a73eb&t=Howl%27s+moving+castle&plot=full")
     }
+
+    private fun initRecyclerView() {
+            adapter = MovieAdapter(movieList)
+            binding.recyclerview1.layoutManager = LinearLayoutManager(context)
+            binding.recyclerview1.adapter = adapter    }
 
     //Set retrofit
     private fun getRetrofit() = Retrofit.Builder().baseUrl("https://www.omdbapi.com/")
         .addConverterFactory(GsonConverterFactory.create()).build()
 
     //Adds the query to the URL of the retrofit
-    private fun addMovieToList(query: String) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val call = getRetrofit().create(MovieAPI::class.java).getMovie(query)
-            val movie = call.body()
-            activity?.runOnUiThread {
-                if (call.isSuccessful) {
-                    movieList.add(movie!!)
 
-                } else {
-                    Toast.makeText(activity, "ERROR", Toast.LENGTH_LONG).show()
-                }
-            }
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
