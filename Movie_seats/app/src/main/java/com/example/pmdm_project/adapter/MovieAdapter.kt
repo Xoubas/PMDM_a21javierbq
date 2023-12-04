@@ -1,5 +1,6 @@
 package com.example.pmdm_project.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import com.example.pmdm_project.R
 import com.example.pmdm_project.model.Movie
 
 
-class MovieAdapter(private var dataset: List<Movie>) :
+class MovieAdapter(private var dataset: List<Movie>, private val context: Context) :
     RecyclerView.Adapter<MovieAdapter.MovieAdapterHolder>() {
 //    private var onClickListener: OnClickListener? = null
 

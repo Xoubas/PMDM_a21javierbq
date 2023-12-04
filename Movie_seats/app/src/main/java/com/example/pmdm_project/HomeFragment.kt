@@ -4,52 +4,71 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.*
+import com.android.volley.toolbox.*
+import com.android.volley.Response
 import com.example.pmdm_project.adapter.MovieAdapter
 import com.example.pmdm_project.databinding.FragmentHomeBinding
 import com.example.pmdm_project.model.Movie
-import com.example.pmdm_project.retrofit.MovieAPI
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import org.json.JSONObject
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: MovieAdapter
+    private var movieList = mutableListOf<Movie>()
+    private lateinit var requestQueue: RequestQueue
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        callAPI()
+        requestQueue = Volley.newRequestQueue(requireContext())
+        parseJson()
         initRecyclerView()
         return binding.root
     }
 
-    private fun callAPI() {
-        addMovieToList("?apikey=8a6a73eb&t=Howl%27s+moving+castle&plot=full")
-        addMovieToList("?apikey=8a6a73eb&t=Howl%27s+moving+castle&plot=full")
-        addMovieToList("?apikey=8a6a73eb&t=Howl%27s+moving+castle&plot=full")
+    private fun parseJson() {
+        val url: String =
+            "http://www.omdbapi.com/?apikey=8a6a73eb&t=Howl%27s+moving+castle&plot=full"
+        val request = JsonObjectRequest(Request.Method.GET, url, null,
+            { response: JSONObject ->
+                try {
+                    //Añadir aqui el objeto
+                        val creatorName = hit.getString("user")
+                        val imageUrl = hit.getString("webformatURL")
+                        val likeCount = hit.getInt("likes")
+
+                        mExampleList.add(ExampleItem(imageUrl, creatorName, likeCount))
+
+                    mExampleAdapter = ExampleAdapter(this@MainActivity, mExampleList)
+                    mRecyclerView.adapter = mExampleAdapter
+
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            { error: VolleyError ->
+                error.printStackTrace()
+            }
+        )
+
     }
 
     private fun initRecyclerView() {
-            adapter = MovieAdapter(movieList)
-            binding.recyclerview1.layoutManager = LinearLayoutManager(context)
-            binding.recyclerview1.adapter = adapter    }
-
-    //Set retrofit
-    private fun getRetrofit() = Retrofit.Builder().baseUrl("https://www.omdbapi.com/")
-        .addConverterFactory(GsonConverterFactory.create()).build()
-
-    //Adds the query to the URL of the retrofit
-
+        adapter = MovieAdapter(movieList, requireContext())
+        binding.recyclerview1.layoutManager = LinearLayoutManager(context)
+        binding.recyclerview1.adapter = adapter
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -72,5 +91,5 @@ class HomeFragment : Fragment() {
 //                startActivity(intent)
 //            }
 //        })
-}
 
+}
