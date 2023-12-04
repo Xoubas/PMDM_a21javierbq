@@ -31,7 +31,7 @@ class MovieAdapter(private var dataset: List<Movie>) :
      */
     override fun onBindViewHolder(holder: MovieAdapterHolder, position: Int) {
         val item = dataset[position]
-        holder.textView.text = dataset[position].title
+        holder.textView.text = dataset[position].director
 //        holder.itemView.setOnClickListener {
 //            if (onClickListener != null) {
 //                onClickListener!!.onClick(position, item)
