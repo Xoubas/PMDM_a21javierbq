@@ -7,5 +7,5 @@ import retrofit2.http.Url
 
 interface MovieAPI {
     @GET
-     fun getMovie(@Url url: String): Response<Movie>
+    suspend fun getMovie(@Url url: String): Response<Movie>
 }
