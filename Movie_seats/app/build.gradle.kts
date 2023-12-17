@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -41,6 +42,7 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
+    implementation ("com.google.code.gson:gson:2.9.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("at.blogc:expandabletextview:1.0.5")
     implementation("com.squareup.picasso:picasso:2.71828")

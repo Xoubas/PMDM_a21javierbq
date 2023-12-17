@@ -1,4 +1,4 @@
-package com.example.pmdm_project
+package com.example.pmdm_project.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

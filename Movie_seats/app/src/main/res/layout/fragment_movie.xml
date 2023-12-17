@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:background="@drawable/howls_moving_castle"
     android:orientation="vertical"
-    tools:context=".MovieFragment">
+    tools:context=".view.MovieFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

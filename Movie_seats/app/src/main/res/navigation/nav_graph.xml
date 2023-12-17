@@ -5,13 +5,21 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/movieFragment"
-        android:name="com.example.pmdm_project.MovieFragment"
-        android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie" />
-    <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.pmdm_project.HomeFragment"
+        android:name="com.example.pmdm_project.view.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.example.pmdm_project.view.MovieFragment"
+        android:label="fragment_movie"
+        tools:layout="@layout/fragment_movie" >
+        <argument
+            android:name="movie"
+            app:argType="com.example.pmdm_project.model.Movie" />
+    </fragment>
 </navigation>

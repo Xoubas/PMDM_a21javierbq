@@ -2,4 +2,7 @@
     <string name="app_name">PMDM_Project</string>
     <string name="expand_button">Read more</string>
     <string name="collapse_button">Read less</string>
+    <string name="recyclerView_hotMovies_title">Hot right now</string>
+    <string name="recyclerView_notReleased_title">Not yet released</string>
+    <string name="recyclerView_classic_title">Old classics</string>
 </resources>
