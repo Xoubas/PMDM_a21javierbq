@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="movieBackground">#C1000000</color>
+    <color name="fixed_button_red">#DC0C0C</color>
 </resources>

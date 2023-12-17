@@ -42,8 +42,8 @@ class HomeFragment : Fragment(), MovieClickListener {
         requestQueue = Volley.newRequestQueue(requireContext())
 
         parseJson(addressesLists.loadMoviesHot(), binding.recyclerviewHotMovies)
-//        parseJson(addressesLists.loadMoviesNR(), binding.recyclerviewNotReleased)
-//        parseJson(addressesLists.loadMoviesOld(), binding.recyclerviewClassics)
+        parseJson(addressesLists.loadMoviesNR(), binding.recyclerviewNotReleased)
+        parseJson(addressesLists.loadMoviesOld(), binding.recyclerviewClassics)
 
         return binding.root
     }
@@ -104,7 +104,7 @@ class HomeFragment : Fragment(), MovieClickListener {
         Toast.makeText(requireContext(), "Clicked on ${movie.title}", Toast.LENGTH_SHORT).show()
         val view = binding.root
         val action= HomeFragmentDirections.actionHomeFragmentToMovieFragment(movie)
-        view.findNavController().navigate(R.id.action_homeFragment_to_movieFragment)
+        view.findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

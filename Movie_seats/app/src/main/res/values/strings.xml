@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">PMDM_Project</string>
+    <string name="app_title">CINEMA BITS</string>
     <string name="expand_button">Read more</string>
     <string name="collapse_button">Read less</string>
     <string name="recyclerView_hotMovies_title">Hot right now</string>
     <string name="recyclerView_notReleased_title">Not yet released</string>
     <string name="recyclerView_classic_title">Old classics</string>
+    <string name="title_show">Title: </string>
+    <string name="duration_show">Duration: </string>
+    <string name="categories_show">Genre: </string>
+    <string name="director_show">Director: </string>
+    <string name="actors_show">Actors: </string>
+    <string name="metascore_show">Metascore: </string>
+    <string name="buy_button">Buy</string>
 </resources>

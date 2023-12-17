@@ -9,121 +9,225 @@
     android:orientation="vertical"
     tools:context=".view.MovieFragment">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="30dp"
-        android:background="@color/movieBackground"
-        android:padding="7dp">
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp">
 
-        <ImageView
-            android:id="@+id/movie_poster_show"
-            android:layout_width="120dp"
-            android:layout_height="170dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/howls_moving_castle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/movieBackground"
+            android:padding="7dp">
 
-        <TextView
-            android:id="@+id/title_show"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:padding="7dp"
-            android:text="Title: Howl's Moving Castle"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@id/duration_show"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/movie_poster_show"
-            app:layout_constraintTop_toTopOf="parent" />
+            <!--Movie poster-->
+            <ImageView
+                android:id="@+id/movie_poster_content"
+                android:layout_width="120dp"
+                android:layout_height="170dp"
+                android:background="@color/white"
+                android:padding="3dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/howls_moving_castle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/duration_show"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:padding="7dp"
-            android:text="Duration: 1 hour 15 minutes"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@id/categories_show"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/movie_poster_show"
-            app:layout_constraintTop_toBottomOf="@id/title_show" />
+            <!--Movie title-->
+            <TextView
+                android:id="@+id/title_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:text="@string/title_show"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/movie_poster_content"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/categories_show"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:padding="7dp"
-            android:text="Categories: Action, Fantasy"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@id/director_show"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/movie_poster_show"
-            app:layout_constraintTop_toBottomOf="@id/duration_show" />
+            <TextView
+                android:id="@+id/title_content"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
 
-        <TextView
-            android:id="@+id/director_show"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:padding="7dp"
-            android:text="Director: Hayao Miyazaki"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@id/actors_show"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/movie_poster_show"
-            app:layout_constraintTop_toBottomOf="@id/categories_show" />
+                android:padding="7dp"
+                android:text="Howl's Moving Castle"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/title_show"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/actors_show"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:padding="7dp"
-            android:text="Actors: Chieko Baishô, Takuya Kimura, Tatsuya Gashûin"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@id/divider1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/director_show" />
+            <!--Movie duration-->
+            <TextView
+                android:id="@+id/duration_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:text="@string/duration_show"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/categories_show"
+                app:layout_constraintStart_toEndOf="@id/movie_poster_content"
+                app:layout_constraintTop_toBottomOf="@id/title_content" />
 
-        <View
-            android:id="@+id/divider1"
-            style="@style/Divider"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/actors_show" />
+            <TextView
+                android:id="@+id/duration_content"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="7dp"
+                android:text="846513574"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/duration_show"
+                app:layout_constraintTop_toBottomOf="@id/title_content" />
+
+            <!--Movie genres-->
+            <TextView
+                android:id="@+id/categories_show"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:padding="7dp"
+                android:text="@string/categories_show"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/movie_poster_content"
+                app:layout_constraintTop_toBottomOf="@+id/duration_content" />
+
+            <TextView
+                android:id="@+id/categories_content"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="7dp"
+                android:text="panico, sexo"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/categories_show"
+                app:layout_constraintTop_toBottomOf="@id/duration_content" />
+
+            <!--Metascore-->
+            <TextView
+                android:id="@+id/metascore_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:text="@string/metascore_show"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/categories_content" />
+
+            <TextView
+                android:id="@+id/metascore_content"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="7dp"
+                android:text="jose gilberesz"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/metascore_show"
+                app:layout_constraintTop_toBottomOf="@id/categories_content" />
+
+            <!--Movie director-->
+            <TextView
+                android:id="@+id/director_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:text="@string/director_show"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/metascore_content" />
+
+            <TextView
+                android:id="@+id/director_content"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="7dp"
+                android:text="jose gilberesz"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/director_show"
+                app:layout_constraintTop_toBottomOf="@id/metascore_content" />
+
+            <!--Movie actors-->
+            <TextView
+                android:id="@+id/actors_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:text="@string/actors_show"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/director_content" />
+
+            <TextView
+                android:id="@+id/actors_content"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="7dp"
+                android:text="jose gilberesz"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/actors_show"
+                app:layout_constraintTop_toBottomOf="@id/director_content" />
 
 
-        <!-- Collapsable textView -->
-        <at.blogc.android.views.ExpandableTextView
-            android:id="@+id/plot_show"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:text="A love story between an 18-year-old girl named Sophie, cursed by a witch into an old woman's body, and a magician named Howl. Under the curse, Sophie sets out to seek her fortune, which takes her to Howl's strange moving castle. In the castle, Sophie meets Howl's fire demon, named Karishifâ. Seeing that she is under a curse, the demon makes a deal with Sophie--if she breaks the contract he is under with Howl, then Karushifâ will lift the curse that Sophie is under, and she will return to her 18-year-old shape."
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:ellipsize="end"
-            android:maxLines="3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider1" />
+            <!--Divider-->
+            <View
+                android:id="@+id/divider1"
+                style="@style/Divider"
+                android:layout_marginTop="32dp"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actors_content" />
 
-        <Button
-            android:id="@+id/expand_plot_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="expand"
-            app:layout_constraintTop_toBottomOf="@id/plot_show" />
+            <!--Plot-->
+            <at.blogc.android.views.ExpandableTextView
+                android:id="@+id/plot_content"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider1" />
 
+            <Button
+                android:id="@+id/expand_plot_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/expand_button"
+                app:layout_constraintBottom_toTopOf="@id/buy_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/plot_content" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/buy_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@color/fixed_button_red"
+                android:text="@string/buy_button"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </LinearLayout>

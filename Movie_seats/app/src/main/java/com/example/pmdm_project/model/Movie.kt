@@ -1,4 +1,5 @@
 package com.example.pmdm_project.model
+
 import android.os.Parcel
 import android.os.Parcelable
 
@@ -9,7 +10,8 @@ data class Movie(
     val director: String?,
     val actors: String?,
     val plot: String?,
-    val poster: String?
+    val poster: String?,
+    val meta: Int?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
@@ -18,7 +20,8 @@ data class Movie(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.readString()
+        parcel.readString(),
+        parcel.readInt() // Read the 'meta' property from the Parcel
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -29,6 +32,7 @@ data class Movie(
         parcel.writeString(actors)
         parcel.writeString(plot)
         parcel.writeString(poster)
+        parcel.writeInt(meta ?: 0) // Write the 'meta' property to the Parcel
     }
 
     override fun describeContents(): Int {
@@ -45,3 +49,4 @@ data class Movie(
         }
     }
 }
+

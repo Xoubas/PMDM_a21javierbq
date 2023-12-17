@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,79 +8,99 @@
     android:orientation="vertical"
     tools:context=".view.HomeFragment">
 
-    <ImageView
-        android:id="@+id/home_image"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/home"
-        app:layout_constraintBottom_toTopOf="@id/hotMovies_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/hotMovies_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/recyclerView_hotMovies_title"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/recyclerview_hotMovies"
-        app:layout_constraintTop_toBottomOf="@id/home_image" />
+        <FrameLayout
+            android:id="@+id/picture_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_hotMovies"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:scrollbars="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/hotMovies_text"
-        app:layout_constraintBottom_toTopOf="@id/notReleased_text"
-        tools:listitem="@layout/list_item" />
+            <ImageView
+                android:id="@+id/home_image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/home"
+                app:layout_constraintBottom_toTopOf="@id/hotMovies_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/notReleased_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/recyclerView_notReleased_title"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/recyclerview_notReleased"
-        app:layout_constraintTop_toBottomOf="@id/recyclerview_hotMovies" />
+            <TextView
+                android:id="@+id/app_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_title"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+        </FrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_notReleased"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:scrollbars="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/notReleased_text"
-        app:layout_constraintBottom_toTopOf="@id/classics_text"
-        tools:listitem="@layout/list_item" />
+        <TextView
+            android:id="@+id/hotMovies_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recyclerView_hotMovies_title"
+            android:textColor="@color/black"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/recyclerview_hotMovies"
+            app:layout_constraintTop_toBottomOf="@id/picture_frame" />
 
-    <TextView
-        android:id="@+id/classics_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/recyclerView_classic_title"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/recyclerview_classics"
-        app:layout_constraintTop_toBottomOf="@id/recyclerview_notReleased" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_hotMovies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/notReleased_text"
+            app:layout_constraintTop_toBottomOf="@id/hotMovies_text"
+            tools:listitem="@layout/list_item" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_classics"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:scrollbars="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/classics_text"
-        tools:listitem="@layout/list_item" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/notReleased_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recyclerView_notReleased_title"
+            android:textColor="@color/black"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/recyclerview_notReleased"
+            app:layout_constraintTop_toBottomOf="@id/recyclerview_hotMovies" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_notReleased"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/classics_text"
+            app:layout_constraintTop_toBottomOf="@id/notReleased_text"
+            tools:listitem="@layout/list_item" />
+
+        <TextView
+            android:id="@+id/classics_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recyclerView_classic_title"
+            android:textColor="@color/black"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/recyclerview_classics"
+            app:layout_constraintTop_toBottomOf="@id/recyclerview_notReleased" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_classics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/classics_text"
+            tools:listitem="@layout/list_item" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

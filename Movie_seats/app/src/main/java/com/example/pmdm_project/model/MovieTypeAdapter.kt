@@ -18,6 +18,7 @@ class MovieTypeAdapter : TypeAdapter<Movie>() {
         var actors: String? = null
         var plot: String? = null
         var poster: String? = null
+        var meta: Int? = null
 
         if (reader.peek() == JsonToken.NULL) {
             reader.nextNull()
@@ -38,13 +39,15 @@ class MovieTypeAdapter : TypeAdapter<Movie>() {
                 "Actors" -> actors = reader.nextString()
                 "Plot" -> plot = reader.nextString()
                 "Poster" -> poster = reader.nextString()
+                "Metascore" -> meta = reader.nextInt()
+
                 else -> reader.skipValue()
             }
         }
 
         reader.endObject()
 
-        return Movie(title, runtime, genres, director, actors, plot, poster)
+        return Movie(title, runtime, genres, director, actors, plot, poster, meta)
     }
 
     private fun hoursMinutes(timeString: String): String {

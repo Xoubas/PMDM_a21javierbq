@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PMDM_Project</string>
+    <string name="app_title">CINEMA BITS</string>
+    <string name="expand_button">Leer mas</string>
+    <string name="collapse_button">Leer menos</string>
+    <string name="recyclerView_hotMovies_title">Popular ahora mismo</string>
+    <string name="recyclerView_notReleased_title">Por estrenar</string>
+    <string name="recyclerView_classic_title">Clásicos del cine</string>
+    <string name="title_show">Título: </string>
+    <string name="duration_show">Duración: </string>
+    <string name="categories_show">Género: </string>
+    <string name="director_show">Director: </string>
+    <string name="actors_show">Reparto: </string>
+    <string name="metascore_show">Metascore: </string>
+    <string name="buy_button">Comprar</string>
+</resources>

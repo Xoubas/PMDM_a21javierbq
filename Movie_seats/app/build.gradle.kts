@@ -41,8 +41,9 @@ android {
 }
 
 dependencies {
+    implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation("androidx.core:core-ktx:1.12.0")
-    implementation ("com.google.code.gson:gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.9.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("at.blogc:expandabletextview:1.0.5")
     implementation("com.squareup.picasso:picasso:2.71828")
