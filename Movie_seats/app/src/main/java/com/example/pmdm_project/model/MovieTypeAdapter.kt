@@ -50,6 +50,9 @@ class MovieTypeAdapter : TypeAdapter<Movie>() {
         return Movie(title, runtime, genres, director, actors, plot, poster, meta)
     }
 
+    /*
+    Transformo los minutos que devuelve la api a horas y minutos
+     */
     private fun hoursMinutes(timeString: String): String {
         val minutesString: String = timeString.replace(Regex("[^\\d]"), "")
         val time: Int = minutesString.toInt()

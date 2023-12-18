@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.*
 import com.android.volley.toolbox.*
+import com.android.volley.toolbox.JsonObjectRequest
 import com.example.pmdm_project.R
 import com.example.pmdm_project.adapter.MovieAdapter
 import com.example.pmdm_project.databinding.FragmentHomeBinding
@@ -48,33 +49,39 @@ class HomeFragment : Fragment(), MovieClickListener {
         return binding.root
     }
 
-    // Functions
+    //Functions
+
+    /*
+    Recorro las listas de películas en una corrutina y hago que esperen las películas
+    para que no suba primero directamente la consulta dado que al estar en corrutina
+    tiene que esperar a que termine de sacar y parsear todas las consultas
+     */
     private fun parseJson(urls: List<String>, recyclerView: RecyclerView) {
         CoroutineScope(Dispatchers.IO).launch {
-            val deferredMovies = urls.map { url ->
+            val movieMap = urls.map { url ->
                 async {
-                    val deferredMovie = CompletableDeferred<Movie?>()
+                    val mappedMovie = CompletableDeferred<Movie?>()
 
                     val jsonObjectRequest = JsonObjectRequest(
                         Request.Method.GET, url, null,
                         { response ->
                             val movie: Movie = parser.getMovie(response.toString())
-                            deferredMovie.complete(movie)
+                            mappedMovie.complete(movie)
                         },
                         {
                             Toast.makeText(requireContext(), "Fail to get data", Toast.LENGTH_LONG)
                                 .show()
-                            deferredMovie.complete(null)
+                            mappedMovie.complete(null)
                         }
                     )
 
                     requestQueue.add(jsonObjectRequest)
 
-                    deferredMovie.await()
+                    mappedMovie.await()
                 }
             }
 
-            val movies = deferredMovies.awaitAll()
+            val movies = movieMap.awaitAll()
 
             withContext(Dispatchers.Main) {
                 when (recyclerView) {

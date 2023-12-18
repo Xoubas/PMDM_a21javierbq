@@ -7,6 +7,10 @@ import java.io.InputStreamReader
 import java.net.URL
 
 class MovieDAO {
+    /*
+    Llamada al TypeAdapter de GSON, que va a parsear el string del json
+    recibido en volley
+     */
     fun getMovie(json: String): Movie {
         val gson: Gson = GsonBuilder().setPrettyPrinting()
             .serializeNulls().registerTypeAdapter(Movie::class.java, MovieTypeAdapter()).create()

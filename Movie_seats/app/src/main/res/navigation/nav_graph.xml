@@ -11,7 +11,8 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_movieFragment"
-            app:destination="@id/movieFragment" />
+            app:destination="@id/movieFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieFragment"
@@ -21,5 +22,14 @@
         <argument
             android:name="movie"
             app:argType="com.example.pmdm_project.model.Movie" />
+        <action
+            android:id="@+id/action_movieFragment_to_blankFragment"
+            app:destination="@id/blankFragment"
+            app:popUpTo="@id/movieFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.example.pmdm_project.BlankFragment"
+        android:label="fragment_form"
+        tools:layout="@layout/fragment_form" />
 </navigation>

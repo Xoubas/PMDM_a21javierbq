@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--Header-->
         <FrameLayout
             android:id="@+id/picture_frame"
             android:layout_width="match_parent"
@@ -38,12 +39,13 @@
                 android:textSize="50sp" />
         </FrameLayout>
 
+        <!--Popular right now-->
         <TextView
             android:id="@+id/hotMovies_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/recyclerView_hotMovies_title"
-            android:textColor="@color/black"
+            android:textColor="@color/fixed_button_red"
             android:textSize="27sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/recyclerview_hotMovies"
@@ -60,12 +62,13 @@
             app:layout_constraintTop_toBottomOf="@id/hotMovies_text"
             tools:listitem="@layout/list_item" />
 
+        <!--Not yet released-->
         <TextView
             android:id="@+id/notReleased_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/recyclerView_notReleased_title"
-            android:textColor="@color/black"
+            android:textColor="@color/fixed_button_red"
             android:textSize="27sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/recyclerview_notReleased"
@@ -82,12 +85,13 @@
             app:layout_constraintTop_toBottomOf="@id/notReleased_text"
             tools:listitem="@layout/list_item" />
 
+        <!--Old movies-->
         <TextView
             android:id="@+id/classics_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/recyclerView_classic_title"
-            android:textColor="@color/black"
+            android:textColor="@color/fixed_button_red"
             android:textSize="27sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/recyclerview_classics"

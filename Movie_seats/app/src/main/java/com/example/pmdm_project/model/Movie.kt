@@ -2,7 +2,6 @@ package com.example.pmdm_project.model
 
 import android.os.Parcel
 import android.os.Parcelable
-
 data class Movie(
     val title: String?,
     val runtime: String?,
@@ -13,6 +12,10 @@ data class Movie(
     val poster: String?,
     val meta: Int?
 ) : Parcelable {
+    /*
+    Implementación de parcelable para poder pasar el objeto película
+    a traves de SafeArgs
+     */
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
@@ -21,18 +24,18 @@ data class Movie(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.readInt() // Read the 'meta' property from the Parcel
+        parcel.readInt()
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
         parcel.writeString(runtime)
-        parcel.writeStringList(genres?.toList()) // Convert LinkedHashSet to List before writing
+        parcel.writeStringList(genres?.toList())
         parcel.writeString(director)
         parcel.writeString(actors)
         parcel.writeString(plot)
         parcel.writeString(poster)
-        parcel.writeInt(meta ?: 0) // Write the 'meta' property to the Parcel
+        parcel.writeInt(meta ?: 0)
     }
 
     override fun describeContents(): Int {

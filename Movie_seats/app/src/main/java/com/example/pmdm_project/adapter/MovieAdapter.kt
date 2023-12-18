@@ -10,11 +10,6 @@ import com.example.pmdm_project.R
 import com.example.pmdm_project.model.Movie
 import com.example.pmdm_project.view.HomeFragment
 import com.squareup.picasso.Picasso
-
-interface OnItemClickListener {
-    fun onItemClick(movie: Movie)
-}
-
 class MovieAdapter(
     private var dataset: List<Movie>,
     private val context: Context,
@@ -26,18 +21,18 @@ class MovieAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieAdapterHolder {
-        // create a new view
         val adapterLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item, parent, false)
 
         return MovieAdapterHolder(adapterLayout)
     }
 
-    /**
-     * Replace the contents of a view (invoked by the layout manager)
+    /*
+    Esta es la función que va a ir colocando en cada ViewHolder del
+    RecyclerView las imagenes de las películas sacadas de la api
      */
     override fun onBindViewHolder(holder: MovieAdapterHolder, position: Int) {
-        // Load image using Picasso
+        //Cargar imagen con piccaso en HomeFragment
         Picasso.get().load(dataset[position].poster).into(holder.imageView)
 
         // Set click listener for each poster
@@ -46,6 +41,7 @@ class MovieAdapter(
         }
     }
 
+    //Obtener el numero de películas pasadas al recycler
     override fun getItemCount() = dataset.size
 
     fun setDataset(movieList: List<Movie>) {
